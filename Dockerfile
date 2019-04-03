@@ -48,6 +48,7 @@ COPY startup /opt/startup
 COPY hostingstart.html /opt/startup
 
 # configure startup
+RUN mkdir -p /tmp
 COPY sshd_config /etc/ssh/
 COPY ssh_setup.sh /tmp
 RUN chmod -R +x /opt/startup \
