@@ -50,6 +50,10 @@ COPY hostingstart.html /opt/startup
 # configure startup
 RUN mkdir -p /tmp
 COPY sshd_config /etc/ssh/
+
+# https://github.com/moby/moby/issues/36573
+RUN : 
+
 COPY ssh_setup.sh /tmp
 RUN chmod -R +x /opt/startup \
    && chmod -R +x /tmp/ssh_setup.sh \
